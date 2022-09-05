@@ -1,0 +1,41 @@
+1.2.3
+
+- Use display instead of fetch in displayHome(), in order to make override of template possible
+
+1.2.2
+
+- Add support for using button element, to make the whole block clickable
+- Remove unused css/js files
+- Remove dot character
+
+1.2.1
+
+- Bug fix: displaying background image while it wasn't defined.
+- Removed negative margin around blocks
+
+1.2.0
+
+- Feature: remove image checkbox
+- Bug fix: image always in database even though no image was uploaded
+
+1.1.3
+
+- Bug fix: description when doing a fresh installation, added the description in install.php
+
+1.1.2
+
+- Bug fix: mixed content issue voor for images fixed
+
+1.1.1
+
+- Improved including template for 1.7 (themes file will be used if provided)
+- HTML is accepted for description field
+
+1.1.0
+
+- Multishop compatability improvements
+- Added description field to block
+
+1.0.0
+
+- Genesis
