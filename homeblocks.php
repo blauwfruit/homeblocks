@@ -340,7 +340,14 @@ class Homeblocks extends Module
                         'type' => 'text',
                         'label' => $this->l('Class of block'),
                         'name' => 'classes',
-                        'desc' => $this->l('Enter bootstrap class names, example: col-md-6')
+                        'desc' => "<p>Enter bootstrap class names, example:</p>
+                                    <ul>
+                                        <li>col-md-6</li>
+                                        <li>col-sm-3</li>
+                                        <li>button (to add a button)</li>
+                                    </ul>
+                                    <p>Or, any class you defined yourself in your code base</p>
+                                    "
                     ),
                     array(
                         'type' => 'file',
