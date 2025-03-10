@@ -35,7 +35,7 @@ class Homeblocks extends Module
     {    
         $this->name = 'homeblocks';
         $this->tab = 'front_office_features';
-        $this->version = '1.2.3';
+        $this->version = '1.3.0';
         $this->author = 'blauwfruit';
         $this->need_instance = 1;
 
