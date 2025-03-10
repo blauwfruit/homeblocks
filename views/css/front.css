@@ -1,14 +1,3 @@
-    .homeblock-list-item h2 {
-        color: #164275;
-        font-weight: bold;
-    }
-    .homeblocks div.homeblock-list-item {
-        border: 1px solid #eeeeee;
-        border-radius: 6px;
-    }
-    .homeblocks div.homeblock-list-item:hover {
-        box-shadow: 0 0 25px rgba(0,0,0,0.1)
-    }
 
 @media (min-width: 768px) {
 
@@ -17,15 +6,10 @@
     }
     .homeblocks div.homeblock-list-item {
         margin: 1em 0;
-        /* border-radius: 3px; */
+        border-radius: 0;
         background-repeat: no-repeat;
         background-position: bottom right;
-        background-size: 80%;
-    }
-    .homeblocks .homeblock-list-item h2 {
-        font-size: 20px;
-        margin-left: 1em;
-        margin-top: 1em;
+        background-size: 50%;
     }
 
     .homeblocks div.homeblock-list-item a {
@@ -38,8 +22,7 @@
     }
 
     .homeblocks div.cover div.homeblock-list-item {
-        background-position: left!important;
-        background-size: auto 240px;
+        background-size: auto 75%;
     }
 
     .homeblock-list-item img {
@@ -61,6 +44,10 @@
         left: 1em;
     }    
 
+    .homeblock-list-item > div {
+        padding: 1em;
+    }
+
 }
 /*@media (max-width: 1600) {
     
@@ -74,12 +61,13 @@
 @media (max-width: 767px) {
     .homeblocks div.homeblock-list-item {
         background: none;
-        min-height: 270px;
+        min-height: 360px;
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center center;
+        background-position: center bottom;
         margin: 2em 0;
         border-radius: 0px;
+        background-size: 50%;
     }
     .homeblocks .span6 div.homeblock-list-item {
         min-height: 150px;
@@ -93,6 +81,7 @@
     }
     .homeblocks .homeblock-list-item {
         text-align: center;
+        padding: 2em;
     }
     .homeblocks div.homeblock-list-item a {
         left: 0;
@@ -107,7 +96,6 @@
     }
     .homeblock-list-item h2 {
         text-align: center;
-        padding: 1em;
     }
 
     .homeblocks div.homeblock-list-item a.btn,
