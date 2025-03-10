@@ -23,7 +23,7 @@
                             </style>
                         {/if}
                     </div>
-                    {if !$item.classes|strstr:"cover"}
+                    {if $item.classes|strstr:"button"}
                         <button href="{$item.link}" class="btn btn-primary">{l s='Bekijken'}</button>
                     {/if}
                 </div>
