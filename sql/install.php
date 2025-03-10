@@ -24,6 +24,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'homeblocks` (
     `button_text` TEXT DEFAULT NULL,
     `position` int(11) DEFAULT NULL,
     `background_color` TEXT DEFAULT NULL,
+    `text_color` TEXT DEFAULT NULL,
     `active` int(1) DEFAULT NULL,
     PRIMARY KEY  (`id_homeblocks`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';

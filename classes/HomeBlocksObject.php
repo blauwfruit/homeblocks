@@ -23,6 +23,7 @@ class HomeBlocksObject extends ObjectModel
     public $image;
     public $link;
     public $background_color;
+    public $text_color;
     public $button_text;
     public $classes;
     public $position;
@@ -42,6 +43,7 @@ class HomeBlocksObject extends ObjectModel
             'image'             => array('type' => self::TYPE_STRING),
             'link'              => array('type' => self::TYPE_STRING),
             'background_color'  => array('type' => self::TYPE_STRING),
+            'text_color'        => array('type' => self::TYPE_STRING),
             'button_text'       => array('type' => self::TYPE_STRING),
             'position'          => array('type' => self::TYPE_INT),
             'active'            => array('type' => self::TYPE_INT),

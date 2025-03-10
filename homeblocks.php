@@ -70,6 +70,8 @@ class Homeblocks extends Module
     public function install()
     {
         include(dirname(__FILE__).'/sql/install.php');
+        include(dirname(__FILE__).'/sql/seeder.php');
+
         return parent::install() &&
             $this->registerHook('header') &&
             $this->registerHook('backOfficeHeader') &&
@@ -146,6 +148,7 @@ class Homeblocks extends Module
                 'image' => $homeblocks->image,
                 'link' => $homeblocks->link,
                 'background_color' => $homeblocks->background_color,
+                'text_color' => $homeblocks->text_color,
                 'position' => $homeblocks->position,
                 'active' => $homeblocks->active,                
             );
@@ -158,6 +161,7 @@ class Homeblocks extends Module
                 'image' => null,
                 'link' => null,
                 'background_color' => null,
+                'text_color' => null,
                 'position' => null,
                 'active' => null,                
             );
@@ -204,6 +208,10 @@ class Homeblocks extends Module
             ),
             'background_color' => array(
                 'title' => $this->l('Background color'),
+                'type' => 'color',
+            ),
+            'text_color' => array(
+                'title' => $this->l('Text color'),
                 'type' => 'color',
             ),
             'position' => array(
@@ -367,6 +375,11 @@ class Homeblocks extends Module
                         'name' => 'background_color',
                     ),
                     array(
+                        'type' => 'color',
+                        'label' => $this->l('Text color'),
+                        'name' => 'text_color',
+                    ),
+                    array(
                         'type' => 'hidden',
                         'label' => $this->l('Postition'),
                         'name' => 'position',
@@ -424,6 +437,7 @@ class Homeblocks extends Module
         $homeblocks->description = Tools::getValue('description');
         $homeblocks->link = Tools::getValue('link');
         $homeblocks->background_color = Tools::getValue('background_color');
+        $homeblocks->text_color = Tools::getValue('text_color');
         $homeblocks->classes = Tools::getValue('classes');
         $homeblocks->active = (int)Tools::getValue('active');
         if ($homeblocks->id) {
