@@ -176,7 +176,7 @@ class HomeBlocksObject extends ObjectModel
      *
      *  @return string $url
      */
-    public function getImageUri($id, $type, $image, $images)
+    public static function getImageUri($id, $type, $image, $images)
     {
         if (!$image) {
             return null;
