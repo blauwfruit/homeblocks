@@ -1,47 +1,47 @@
-.homeblocks div.homeblock-list-item {
+#homeblocks div.homeblock-list-item {
     background-repeat: no-repeat;
 }
 
 @media (max-width: 767px) {
-    .homeblocks div.homeblock-list-item {
+    #homeblocks div.homeblock-list-item {
         background-position: bottom center;
     }
 }
 
 @media (min-width: 768px) {
 
-    .homeblocks  img {
+    #homeblocks  img {
         width: 100%;
     }
-    .homeblocks div.homeblock-list-item {
+    #homeblocks div.homeblock-list-item {
         margin: 1em 0;
         border-radius: 0;
     }
 
-    .homeblocks div.homeblock-list-item a {
+    #homeblocks div.homeblock-list-item a {
         left: 1em;
     }
 
-    .homeblocks .row > div > a.btn {
+    #homeblocks .row > div > a.btn {
         bottom: 5em;
         left: 1em;
     }
 
-    .homeblocks div.cover div.homeblock-list-item {
+    #homeblocks div.cover div.homeblock-list-item {
     }
 
     .homeblock-list-item img {
         display: none;
     }
-    .homeblocks div.homeblock-list-item {
+    #homeblocks div.homeblock-list-item {
         min-height: 17em;
     }
-    .homeblocks div.homeblock-list-item a {
+    #homeblocks div.homeblock-list-item a {
         top: 10em;
     }
 
-    .homeblocks div.homeblock-list-item a.btn,
-    .homeblocks div.homeblock-list-item button.btn {
+    #homeblocks div.homeblock-list-item a.btn,
+    #homeblocks div.homeblock-list-item button.btn {
         position: absolute;
         top: unset;
         bottom: 2em;
@@ -56,32 +56,32 @@
 
 
 @media (max-width: 767px) {
-    .homeblocks div.homeblock-list-item {
+    #homeblocks div.homeblock-list-item {
         min-height: 360px;
         margin: 2em 0;
         border-radius: 0px;
     }
-    .homeblocks .span6 div.homeblock-list-item {
+    #homeblocks .span6 div.homeblock-list-item {
         min-height: 150px;
     }
-    .homeblocks .span3 div.homeblock-list-item {
+    #homeblocks .span3 div.homeblock-list-item {
         min-height: 400px;
     }
-    .homeblocks div.homeblock-list-item a {
+    #homeblocks div.homeblock-list-item a {
         top: 0;
         margin-bottom: 1em
     }
-    .homeblocks .homeblock-list-item {
+    #homeblocks .homeblock-list-item {
         text-align: center;
         padding: 2em;
     }
-    .homeblocks div.homeblock-list-item a {
+    #homeblocks div.homeblock-list-item a {
         left: 0;
     }
-    .homeblocks .row > div {
+    #homeblocks .row > div {
         text-align: center;
     }
-    .homeblocks .row > div > a.btn {
+    #homeblocks .row > div > a.btn {
         bottom: 6em;
         position: relative;
         left: 0em;
@@ -90,8 +90,8 @@
         text-align: center;
     }
 
-    .homeblocks div.homeblock-list-item a.btn,
-    .homeblocks div.homeblock-list-item button.btn {
+    #homeblocks div.homeblock-list-item a.btn,
+    #homeblocks div.homeblock-list-item button.btn {
         position: absolute;
         top: unset;
         bottom: 1em;
@@ -100,14 +100,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .homeblocks div.cover div.homeblock-list-item {
+    #homeblocks div.cover div.homeblock-list-item {
     }
-    .homeblocks div.cover div.homeblock-list-item {
+    #homeblocks div.cover div.homeblock-list-item {
     }
-    .homeblocks div.homeblock-list-item {
+    #homeblocks div.homeblock-list-item {
         min-height: 160px;
     }
-    .homeblocks .homeblock-list-item h2 {
+    #homeblocks .homeblock-list-item h2 {
         font-size: 15px;
         text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
         word-break: break-word;
