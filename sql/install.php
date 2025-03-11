@@ -20,6 +20,8 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'homeblocks` (
     `description` LONGTEXT NULL DEFAULT NULL,
     `classes` TEXT DEFAULT NULL,
     `image` TEXT DEFAULT NULL,
+    `image_position` TEXT DEFAULT NULL,
+    `image_size` TEXT DEFAULT NULL,
     `link` TEXT DEFAULT NULL,
     `button_text` TEXT DEFAULT NULL,
     `position` int(11) DEFAULT NULL,
