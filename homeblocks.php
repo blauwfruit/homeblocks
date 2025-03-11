@@ -30,7 +30,6 @@ class Homeblocks extends Module
     /* Admin Tabs */
     public $tabs = array();
 
-
     public function __construct()
     {    
         $this->name = 'homeblocks';
@@ -146,6 +145,8 @@ class Homeblocks extends Module
                 'description' => $homeblocks->description,
                 'classes' => $homeblocks->classes,
                 'image' => $homeblocks->image,
+                'image_position' => $homeblocks->image_position,
+                'image_size' => $homeblocks->image_size,
                 'link' => $homeblocks->link,
                 'background_color' => $homeblocks->background_color,
                 'text_color' => $homeblocks->text_color,
@@ -159,6 +160,8 @@ class Homeblocks extends Module
                 'description' => null,
                 'classes' => null,
                 'image' => null,
+                'image_position' => null,
+                'image_size' => null,
                 'link' => null,
                 'background_color' => null,
                 'text_color' => null,
@@ -201,6 +204,14 @@ class Homeblocks extends Module
                 'type' => 'image',
                 'image' => $this->name,
                 'image_id' => 'image', 
+            ),
+            'image_position' => array(
+                'title' => $this->l('Image position'),
+                'type' => 'text',
+            ),
+            'image_size' => array(
+                'title' => $this->l('Image size'),
+                'type' => 'text',
             ),
             'link' => array(
                 'title' => $this->l('Link'),
@@ -353,24 +364,59 @@ class Homeblocks extends Module
                         'type' => 'file',
                         'label' => $this->l('Image'),
                         'name' => 'image',
-                    ),  
-                array(
-                    'type' => 'checkbox',
-                    'name' => 'clear_image',
-                    'values' => array(
-                        'query' => array(
-                            array(
-                                'id' => 'checkbox',
-                                'name' => $this->l('Check if you want to clear the old image in order to use no image'),
-                                'label' => $this->l('Clear image'),
-                                'val' => '1',
-                                'checked' => 'checked'
+                    ),
+                    array(
+                        'type' => 'select',
+                        'label' => $this->l('Image Position'),
+                        'name' => 'image_position',
+                        'options' => array(
+                            'query' => array(
+                                array('id' => HomeBlocksObject::IMAGE_POSITION_TOP_LEFT, 'name' => $this->l('Top Left')),
+                                array('id' => HomeBlocksObject::IMAGE_POSITION_TOP_RIGHT, 'name' => $this->l('Top Right')),
+                                array('id' => HomeBlocksObject::IMAGE_POSITION_BOTTOM_RIGHT, 'name' => $this->l('Bottom Right')),
+                                array('id' => HomeBlocksObject::IMAGE_POSITION_BOTTOM_LEFT, 'name' => $this->l('Bottom Left')),
+                                array('id' => HomeBlocksObject::IMAGE_POSITION_CENTER, 'name' => $this->l('Cover')),
                             ),
+                            'id' => 'id',
+                            'name' => 'name'
                         ),
-                        'id' => 'id',
-                        'name' => 'name'
-                    )
-                ),
+                        'desc' => $this->l('Select the position of the image in the block.')
+                    ),
+                    array(
+                        'type' => 'select',
+                        'label' => $this->l('Image size'),
+                        'name' => 'image_size',
+                        'options' => array(
+                            'query' => array(
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_10, 'name' => $this->l('10%')),
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_25, 'name' => $this->l('25%')),
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_50, 'name' => $this->l('50%')),
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_75, 'name' => $this->l('74%')),
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_COVER, 'name' => $this->l('Cover')),
+                                array('id' => HomeBlocksObject::IMAGE_SIZE_CONTAIN, 'name' => $this->l('Contain')),
+                            ),
+                            'id' => 'id',
+                            'name' => 'name'
+                        ),
+                        'desc' => $this->l('Select the position of the image in the block.')
+                    ),
+                    array(
+                        'type' => 'checkbox',
+                        'name' => 'clear_image',
+                        'values' => array(
+                            'query' => array(
+                                array(
+                                    'id' => 'checkbox',
+                                    'name' => $this->l('Check if you want to clear the old image in order to use no image'),
+                                    'label' => $this->l('Clear image'),
+                                    'val' => '1',
+                                    'checked' => 'checked'
+                                ),
+                            ),
+                            'id' => 'id',
+                            'name' => 'name'
+                        )
+                    ),
                     array(
                         'type' => 'text',
                         'label' => $this->l('Link'),
@@ -444,6 +490,8 @@ class Homeblocks extends Module
         $homeblocks->description = Tools::getValue('description');
         $homeblocks->link = Tools::getValue('link');
         $homeblocks->background_color = Tools::getValue('background_color');
+        $homeblocks->image_position = Tools::getValue('image_position');
+        $homeblocks->image_size = Tools::getValue('image_size');
         $homeblocks->text_color = Tools::getValue('text_color');
         $homeblocks->classes = Tools::getValue('classes');
         $homeblocks->active = (int)Tools::getValue('active');
@@ -504,36 +552,15 @@ class Homeblocks extends Module
 
     public function hookDisplayHome()
     {
-        $blocks = array();
-
-        foreach (HomeBlocksObject::getBlocks($this->context->shop->id) as $key => $value) {
-            $blocks[$key] = $value;
-            $blocks[$key]['image'] = $this->getImageUri($value['id_homeblocks'], 'image', $value['image']);
-        }
-
-        $this->context->smarty->assign(array('blocks' => $blocks));
+        $this->context->smarty->assign([
+            'blocks' => HomeBlocksObject::getBlocks($this->context->shop->id, $this->images)
+        ]);
 
         if (version_compare(_PS_VERSION_, '1.7', '>=')) {
             return $this->context->smarty->fetch('module:homeblocks/views/templates/hook/block.tpl');
         } else {
             return $this->display(__FILE__, 'views/templates/hook/block.tpl');
         }
-    }
-
-    /**
-     *  Retrieve URL of image
-     *
-     *  @return string $url
-     */
-    public function getImageUri($id, $type, $image)
-    {
-        if (!$image) {
-            return null;
-        }
-
-        return in_array($type, $this->images)
-            ? sprintf('%simg/%s/%d_%s.png', _PS_BASE_URL_SSL_.__PS_BASE_URI__, $this->name, $id, $type)
-            : null;
     }
 
     public function getIds($string)
@@ -586,7 +613,7 @@ class Homeblocks extends Module
         $this->context->controller->addCSS($this->_path.'/views/css/front.css');
     }
 
-    public function ajaxProcessUpdatePositions﻿()
+    public function ajaxProcessUpdatePositions()
     {
         $way = (int)(Tools::getValue('way'));
         $id = (int)(Tools::getValue('id'));

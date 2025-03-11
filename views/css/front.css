@@ -1,3 +1,12 @@
+.homeblocks div.homeblock-list-item {
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 767px) {
+    .homeblocks div.homeblock-list-item {
+        background-position: bottom center;
+    }
+}
 
 @media (min-width: 768px) {
 
@@ -7,9 +16,6 @@
     .homeblocks div.homeblock-list-item {
         margin: 1em 0;
         border-radius: 0;
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        background-size: 50%;
     }
 
     .homeblocks div.homeblock-list-item a {
@@ -22,7 +28,6 @@
     }
 
     .homeblocks div.cover div.homeblock-list-item {
-        background-size: auto 75%;
     }
 
     .homeblock-list-item img {
@@ -30,7 +35,6 @@
     }
     .homeblocks div.homeblock-list-item {
         min-height: 17em;
-        background-size: 70%;
     }
     .homeblocks div.homeblock-list-item a {
         top: 10em;
@@ -40,8 +44,8 @@
     .homeblocks div.homeblock-list-item button.btn {
         position: absolute;
         top: unset;
-        bottom: 1em;
-        left: 1em;
+        bottom: 2em;
+        left: 2em;
     }    
 
     .homeblock-list-item > div {
@@ -49,25 +53,13 @@
     }
 
 }
-/*@media (max-width: 1600) {
-    
-    .homeblocks div.cover div.homeblock-list-item {
-        background-position: left!important;
-        background-size: auto 240px;
-    }
-}*/
 
 
 @media (max-width: 767px) {
     .homeblocks div.homeblock-list-item {
-        background: none;
         min-height: 360px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center bottom;
         margin: 2em 0;
         border-radius: 0px;
-        background-size: 50%;
     }
     .homeblocks .span6 div.homeblock-list-item {
         min-height: 150px;
@@ -103,22 +95,17 @@
         position: absolute;
         top: unset;
         bottom: 1em;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 2em;
     } 
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .homeblocks div.cover div.homeblock-list-item {
-        background-size: contain!important;
     }
     .homeblocks div.cover div.homeblock-list-item {
-        background-size: auto 240px;
     }
     .homeblocks div.homeblock-list-item {
         min-height: 160px;
-        background-size: 70%;
-        background-position: right center;
     }
     .homeblocks .homeblock-list-item h2 {
         font-size: 15px;
@@ -127,4 +114,3 @@
     }
 
 }
-
